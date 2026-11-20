@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nombres de usuario</title>
+    <link rel="stylesheet" href="estilines.css">
 </head>
 <body>
+    <br>
     <h1>Crear nombre de usuario</h1>
     <hr>
     <form method="Post" action="">
-        <h3>Ingresar datos:</h3>
+        <h2>Ingresar datos:</h2>
         <br>
         <label for="nom">Nombre completo:</label>
         <br>
@@ -25,16 +27,18 @@
         <br><br>
         <button type="submit" name="registrar">Registrar</button>
     </form>
-    <br><br>
+    <br>
+    <p class="lol">
     <?php
         if($_SERVER["REQUEST_METHOD"]=== "POST" && isset($_POST['registrar'])) {
             require_once("funcionsillas.php");
             $nom= strval($_POST['nom']);
             $inst= strval($_POST['inst']);
             $a= strval($_POST['a']);
-            echo "Su nombre de usuario es: ". generar_usuario($nom, $inst, $a). "<br>";
+            echo "Su nombre de usuario es: " . "<strong>" . generar_usuario($nom, $inst, $a) . "</strong>";
         }
     ?>
+    </p>
     <br>
     <div class="btn_menu">
         <a href="menu.php">
