@@ -25,8 +25,15 @@
         <br><br>
         <button type="submit" name="registrar">Registrar</button>
     </form>
+    <br><br>
     <?php
-
+        if($_SERVER["REQUEST_METHOD"]=== "POST" && isset($_POST['registrar'])) {
+            require_once("funcionsillas.php");
+            $nom= strval($_POST['nom']);
+            $inst= strval($_POST['inst']);
+            $a= strval($_POST['a']);
+            echo "Su nombre de usuario es: ". generar_usuario($nom, $inst, $a). "<br>";
+        }
     ?>
     <br>
     <div class="btn_menu">

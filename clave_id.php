@@ -21,8 +21,14 @@
         <br><br>
         <button type="submit" name="registrar">Registrar</button>
     </form>
+    <br><br>
     <?php
-
+        if($_SERVER["REQUEST_METHOD"]=== "POST" && isset($_POST['registrar'])) {
+            require_once("funcionsillas.php");
+            $nom = strval($_POST['nom']);
+            $fecha = strval($_POST['fecha']);
+            echo "Su clave de identificacion es: " . generar_clave($nom, $fecha) . "<br>";
+        }
     ?>
     <br>
     <div class="btn_menu">
